@@ -1,0 +1,52 @@
+.FormRender{
+  padding: 20px;
+}
+
+.url{
+  margin: 3%;
+}
+
+.verbs{
+  margin: 3%;
+
+}
+.contentArea{
+  background-color: #F5F5F5;
+  margin: 3% 20%;
+  padding: 10px;
+}
+
+button{
+  margin: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: transparent;
+  background-color: gainsboro;
+}
+
+.goButton{
+  margin: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: transparent;
+  background-color: gainsboro;
+  width:50px;
+}
+
+.goButton:hover{
+  background-color:grey;
+}
+
+button:hover{
+  background-color:grey;
+}
+
+input{
+  width: 200px;
+  padding: 5px;
+  border:1px solid #191970;
+}
+
+h3{
+  color:#191970;
+}
