@@ -2,18 +2,23 @@
   padding: 20px;
 }
 
+input{
+  width: 200px;
+  padding: 5px;
+  border:1px solid #191970;
+}
+
+h3{
+  color:#191970;
+}
+
 .url{
   margin: 3%;
 }
 
 .verbs{
   margin: 3%;
-
-}
-.contentArea{
-  background-color: #F5F5F5;
-  margin: 3% 20%;
-  padding: 10px;
+  
 }
 
 button{
@@ -22,6 +27,10 @@ button{
   font-size: 12px;
   border: transparent;
   background-color: gainsboro;
+}
+
+button:hover{
+  background-color:grey;
 }
 
 .goButton{
@@ -37,16 +46,10 @@ button{
   background-color:grey;
 }
 
-button:hover{
-  background-color:grey;
+.contentArea{
+  background-color: #F5F5F5;
+  margin: 3% 20%;
+  padding: 10px;
 }
 
-input{
-  width: 200px;
-  padding: 5px;
-  border:1px solid #191970;
-}
 
-h3{
-  color:#191970;
-}
