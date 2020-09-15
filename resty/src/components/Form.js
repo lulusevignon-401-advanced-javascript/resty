@@ -11,6 +11,23 @@ class Form extends React.Component {
     }
   }
 
+
+  handleSubmit = async event =>{
+    event.preventDefault();
+    let raw = await fetch(this.state.url);
+
+    let headers = {};
+    raw.headers.forEach((val, key)=> headers[key]= val);
+    console.log(headers);
+
+    let data = await raw.json();
+
+    let count = data.count;
+    let results = data.results;
+
+    this.props.handler(count, results, headers);
+  }
+
   handleUrl = event => {
     let url = event.target.value;
     this.setState({url});
@@ -32,11 +49,12 @@ class Form extends React.Component {
 
   render() {
     return (
-    <form className="FormRender">
+    <form className="FormRender" onSubmit={this.handleSubmit}>
     <div className="url">
       
-      <h3>URL: <input type="text" onChange={this.handleUrl} />
-      <input className="goButton" type="submit" value="GO!" onClick={this.handleClick} />
+      <h3>URL: <input type="text" placeholder="url" onChange={this.handleUrl} />
+    <button className="goButton">{this.props.prompt}</button>
+      {/* <input  onClick={this.handleClick} /> */}
 
       </h3>
     </div>
@@ -46,9 +64,9 @@ class Form extends React.Component {
       <button value="PUT " onClick={this.handleVerb}>PUT</button>
       <button value="DELETE " onClick={this.handleVerb}>DELETE</button>
     </div>
-    <section className="contentArea">
+    {/* <section className="contentArea">
     <p>{this.state.method}{this.state.url}</p>
-    </section>
+    </section> */}
     </form>
   );
   }
