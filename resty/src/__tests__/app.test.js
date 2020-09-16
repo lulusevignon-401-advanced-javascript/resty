@@ -2,38 +2,50 @@ import React from 'react'
 import { render, fireEvent, waitFor, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import App from '../App.js'
-// import People from '../people'
+import Form from '../components/Form.js'
+import Results from '../components/Results.js'
 
 
 
-test.skip('dynamically updates number', async () => {
-  render(<App />);
-  const input = screen.getByTestId('num');
-  const output = screen.getByTestId('output');
-  fireEvent.change(input, { target: { value: 1234 } });
-  expect(output).toHaveTextContent('1234')
-})
+it('should render Star Wars list', async () => {
 
-
-it.skip('should render Star Wars list', async () => {
-
-  const people = {
-    "Luke Skywalker": "http://swapi.dev/api/people/1/",
-    "Darth Vader": "http://swapi.dev/api/people/4/",
+  const results = [{
+    "name": "Luke Skywalker",
+    "height": "172",
+    "mass": "77",
+    "hair_color": "blond",
+    "skin_color": "fair",
+    "eye_color": "blue",
+    "birth_year": "19BBY",
+    "gender": "male",
+    "homeworld": "http://swapi.dev/api/planets/1/",
+    "films": [
+      "http://swapi.dev/api/films/1/",
+      "http://swapi.dev/api/films/2/",
+      "http://swapi.dev/api/films/3/",
+      "http://swapi.dev/api/films/6/"
+    ],
+    "species": [],
+    "vehicles": [
+      "http://swapi.dev/api/vehicles/14/",
+      "http://swapi.dev/api/vehicles/30/"
+    ],
+    "starships": [
+      "http://swapi.dev/api/starships/12/",
+      "http://swapi.dev/api/starships/22/"
+    ],
+    "created": "2014-12-09T13:50:51.644000Z",
+    "edited": "2014-12-20T21:17:56.891000Z",
+    "url": "http://swapi.dev/api/people/1/"
   }
-  render (<People loading={false} people={people} count={82} />);
+]
 
-  // Uncomment below and check your terminal for coolness
-  // screen.debug();
+  const headers = {'content-type': 'application/json'};
 
-  const count = screen.getByRole('heading');
-  expect(count).toHaveTextContent('Count: 82');
+  render (<Results headers={headers} results={results} count={1} />);
 
-  const items = screen.getAllByRole('listitem');
-  expect(items).toHaveLength(2);
-  expect(items[0]).toHaveTextContent('Luke Skywalker');
-  expect(items[0]).toContainHTML('<a href="http://swapi.dev/api/people/1/">');
-  expect(items[1]).toHaveTextContent('Darth Vader');
-  expect(items[1]).toContainHTML('<a href="http://swapi.dev/api/people/4/">');
+  expect(screen.getByText('Count: 1')).toBeInTheDocument();
+  expect(screen.getByText('"Luke Skywalker"'));
+  expect(screen.getByText('"http://swapi.dev/api/planets/1/"'));
 
 });

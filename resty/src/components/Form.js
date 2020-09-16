@@ -18,7 +18,6 @@ class Form extends React.Component {
 
     let headers = {};
     raw.headers.forEach((val, key)=> headers[key]= val);
-    console.log(headers);
 
     let data = await raw.json();
 
@@ -54,7 +53,6 @@ class Form extends React.Component {
       
       <h3>URL: <input type="text" placeholder="url" onChange={this.handleUrl} />
     <button className="goButton">{this.props.prompt}</button>
-      {/* <input  onClick={this.handleClick} /> */}
 
       </h3>
     </div>
@@ -64,9 +62,6 @@ class Form extends React.Component {
       <button value="PUT " onClick={this.handleVerb}>PUT</button>
       <button value="DELETE " onClick={this.handleVerb}>DELETE</button>
     </div>
-    {/* <section className="contentArea">
-    <p>{this.state.method}{this.state.url}</p>
-    </section> */}
     </form>
   );
   }
