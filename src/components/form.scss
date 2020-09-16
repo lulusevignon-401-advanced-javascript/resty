@@ -1,0 +1,49 @@
+.FormRender{
+  padding: 20px;
+}
+
+input{
+  width: 200px;
+  padding: 5px;
+  border:1px solid #191970;
+}
+
+h3{
+  color:#191970;
+}
+
+.url{
+  margin: 3%;
+}
+
+.verbs{
+  margin: 3%;
+  
+}
+
+button{
+  margin: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: transparent;
+  background-color: gainsboro;
+}
+
+button:hover{
+  background-color:grey;
+}
+
+.goButton{
+  margin: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: transparent;
+  background-color: gainsboro;
+  width:50px;
+}
+
+.goButton:hover{
+  background-color:grey;
+}
+
+
