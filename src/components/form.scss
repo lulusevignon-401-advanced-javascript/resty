@@ -18,10 +18,13 @@ h3{
 
 .verbs{
   margin: 3%;
-  
 }
 
-button{
+.textArea{
+  width: 200px;
+}
+
+.method{
   margin: 6px;
   padding: 8px 12px;
   font-size: 12px;
@@ -29,7 +32,7 @@ button{
   background-color: gainsboro;
 }
 
-button:hover{
+.method:hover{
   background-color:grey;
 }
 

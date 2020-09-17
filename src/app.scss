@@ -2,3 +2,9 @@ body{
   background-color:snow;
   text-align: center;
 }
+
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
