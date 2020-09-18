@@ -13,18 +13,35 @@ const Results = (props) =>{
         <div className="loading">
           <img src={loading} alt="Loading"/>
         </div>
-        ) : (
+        ) :(
           <>
-          <h3>Headers</h3>
-          <JSONPretty data={props.headers}></JSONPretty>
-          <h3>Results</h3>
-          <JSONPretty data={props.results}></JSONPretty>
-          </>
-        ) 
+              <h3>Headers</h3>
+              <JSONPretty data={props.headers}></JSONPretty>
+    
+              <h3>Results</h3>
+              <JSONPretty data={props.results}></JSONPretty>
+              </>
+            )
       }
 
     </section>
   )
+
 }
+
+// function resultsData(props){
+//     if(props.resultsData){
+//       return (
+//       <>
+//           <h3>Headers</h3>
+//           <JSONPretty data={props.headers}></JSONPretty>
+
+//           <h3>Results</h3>
+//           <JSONPretty data={props.results}></JSONPretty>
+//           </>
+//         );
+//       }  
+// }
+
 
 export default Results;
