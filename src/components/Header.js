@@ -13,11 +13,11 @@ const Header = props => {
         <NavLink data-testid="homelink" activeClassName="here" to="/">Home</NavLink>
         </li>
         <li>
-            <NavLink data-testid="classiclink" activeClassName="here" to="/history">History</NavLink>
-          </li>
-          <li>
-            <NavLink data-testid="renderlink" activeClassName="here" to="/help">Help</NavLink>
-          </li>
+          <NavLink data-testid="classiclink" activeClassName="here" to="/history">History</NavLink>
+        </li>
+        <li>
+          <NavLink data-testid="renderlink" activeClassName="here" to="/help">Help</NavLink>
+        </li>
       </ul>
     </nav>
   </header>);

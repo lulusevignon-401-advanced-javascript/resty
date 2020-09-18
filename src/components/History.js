@@ -1,5 +1,7 @@
 import React from 'react';
 import './history.scss';
+import '../app.scss';
+
 
 function History(props){
   const calls = props.calls || {};
@@ -7,6 +9,7 @@ function History(props){
   function loadRequest(apiCall){
     props.handler(apiCall);
   }
+ 
 
   return(
     <div className="history">

@@ -75,9 +75,9 @@ class App extends React.Component {
     <div className="App">
     <Header />
     
-    <main>
+   
     <Main />
-    </main>
+   
     
     <Footer />
     </div>

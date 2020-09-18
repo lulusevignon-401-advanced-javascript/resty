@@ -8,7 +8,7 @@ import History from './History.js';
 const Main = props =>{
 
   return(
-    <main>
+    <>
       <Switch>
 
         <Route exact path="/">
@@ -23,7 +23,7 @@ const Main = props =>{
         
 
       </Switch>
-    </main>
+    </>
   )
 }
 

@@ -7,3 +7,42 @@ header {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+nav{
+  ul {
+    list-style-type: none;
+    font-size: medium;
+    
+
+    li {
+        display: inline-block;
+        padding: 10px 30px;
+        position: relative;
+
+        a {
+          color: gainsboro;
+          text-decoration: none;
+
+          &:hover{
+            font-size: x-large;
+          }
+
+          // &:after {
+          //     bottom: 0;
+          //     content: '';
+          //     left: 0;
+          //     position: absolute;
+          //     right: 0;
+          //     top: 0;
+          // }
+
+          &.here, &.here:hover {
+              color: rgba(255, 0, 212, 0.755);
+              
+          }
+      }
+
+  }
+}
+}
+

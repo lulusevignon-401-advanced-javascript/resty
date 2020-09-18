@@ -6,6 +6,7 @@ import Form from './Form';
 import Results from './Results';
 import History from './History';
 
+import '../app.scss';
 
 class HomePage extends React.Component {
  
