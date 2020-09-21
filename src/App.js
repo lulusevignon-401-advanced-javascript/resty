@@ -1,34 +1,87 @@
 import React from 'react';
+// import axios from 'axios';
+// import md5 from 'md5';
+
+import { BrowserRouter, MemoryRouter, HashRouter } from 'react-router-dom';
 
 import './app.scss';
+
 import Header from './components/Header';
-import Form from './components/Form';
+
 import Footer from './components/Footer';
-import Results from './components/Results';
+// import History from './components/History';
+import Main from './components/Main';
 
 class App extends React.Component {
  
-  constructor(props){
-    super(props);
-    this.state = {
-      count: 0,
-      results: [],
-      headers: {},
-    };
-  }
+  // constructor(props){
+  //   super(props);
+  //   this.state = {
+  //     loading: false,
+  //     // results:[],
+  //     request: {},
+  //     history: {},
+  //   };
+  // }
 
-  handleForm = (count, results, headers) => {
-    this.setState({ count, results, headers });
-  };
+  // updateResults = (headers, results) =>{
+  //   this.setState({headers, results});
+  // };
+
+  // updateRequest = (request) =>{
+  //   this.setState({request});
+  // };
+
+  // toggleLoading = () =>{
+  //   this.setState({loading: !this.state.loading});
+  // };
+
+  // updateHistory(request){
+  //   let hash = md5(JSON.stringify(request));
+
+  //   const history = { ...this.state.history, [hash]: request}
+
+  //   this.setState({history}, ()=>{
+  //     localStorage.setItem('history', JSON.stringify(this.state,history));
+  //   });
+  // }
+
+  // componentDidMount() {
+  //   let history = JSON.parse(localStorage.getItem('history'));
+  //   this.setState({ history });
+  // }
+
+  // fetchResults = async(request)=>{
+  //   try{
+
+  //     this.toggleLoading();
+  //     this.updateRequest(request);
+  //     let response = await axios(request);
+  //     console.log('this is the request', request);
+  //     this.toggleLoading();
+
+  //     this.updateHistory(request);
+  //     this.updateResults(response.headers, response.data);
+  //   }
+  //   catch (error){
+  //     console.log(error);
+  //   }
+  // }
+
 
   render(){
   return (
+    <BrowserRouter>
     <div className="App">
     <Header />
-    <Form  prompt="Go!" handler={this.handleForm}/>
-    <Results count={this.state.count} results={this.state.results} headers={this.state.headers}/>
+    
+   
+    <Main />
+   
+    
     <Footer />
     </div>
+    </BrowserRouter>
   );
   }
 }

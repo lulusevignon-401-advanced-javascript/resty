@@ -1,70 +1,63 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './form.scss';
 
-class Form extends React.Component {
+function Form (props) {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      url: '',
-      method: '',
-    }
-  }
+  const [request, setRequest] = useState({});
 
+  useEffect(()=>{
+    const method = props.request.method || 'get';
+    const url = props.request.url || '';
+    const data = props.request.data ? JSON.stringify(props.request.data) : '';
+    setRequest({ method, url,data});
+  }, [props, setRequest]);
 
-  handleSubmit = async event =>{
+  const handleSubmit = async event =>{
     event.preventDefault();
-    let raw = await fetch(this.state.url);
-
-    let headers = {};
-    raw.headers.forEach((val, key)=> headers[key]= val);
-
-    let data = await raw.json();
-
-    let count = data.count;
-    let results = data.results;
-
-    this.props.handler(count, results, headers);
+    props.handler(request);
   }
 
-  handleUrl = event => {
+  const changeUrl = event => {
     let url = event.target.value;
-    this.setState({url});
+    setRequest({ ...request, url});
   }
 
-  handleClick = event => {
-    event.preventDefault();
-    let url = this.state.url
-    this.setState({ url });
+  const changeBody = event =>{
+    try {
+      let data = JSON.parse(event.target.value);
+      setRequest({...request, data});
+    }
+    catch (error){}
+  };
+
+  const changeMethod = method =>{
+    setRequest({ ...request, method});
 
   }
 
-  handleVerb = event =>{
-    event.preventDefault();
-    let method = event.target.value;
-    this.setState({method});
-
-  }
-
-  render() {
+  
     return (
-    <form className="FormRender" onSubmit={this.handleSubmit}>
+    <form className="FormRender" onSubmit={handleSubmit}>
     <div className="url">
       
-      <h3>URL: <input type="text" placeholder="url" onChange={this.handleUrl} />
-    <button className="goButton">{this.props.prompt}</button>
-
+      <h3>URL: <input type="text" placeholder="url" defaultValue={request.url} onChange={changeUrl} />
+      <button className="goButton">GO!</button>
       </h3>
     </div>
+
     <div className="verbs">
-      <button value="GET " onClick={this.handleVerb}>GET</button>
-      <button value="POST " onClick={this.handleVerb}>POST</button>
-      <button value="PUT " onClick={this.handleVerb}>PUT</button>
-      <button value="DELETE " onClick={this.handleVerb}>DELETE</button>
+      <span className={`method ${request.method === 'get'}`} onClick={() => changeMethod('get')}>GET</span>
+      <span className={`method ${request.method === 'post'}`} onClick={() => changeMethod('post')}>POST</span>
+      <span className={`method ${request.method === 'put'}`} onClick={() => changeMethod('put')}>PUT</span>
+      <span className={`method ${request.method === 'delete'}`} onClick={() => changeMethod('delete')}>DELETE</span>
+
+      <textarea className="textArea" name="data" onChange={changeBody} defaultValue={request.data}/>
     </div>
+    <hr></hr>
     </form>
+    
   );
-  }
+  
 }
 
 export default Form;
