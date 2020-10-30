@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactJson from 'react-json-view';
 import JSONPretty from 'react-json-pretty';
 import { When } from './If';
 class History extends React.Component {
