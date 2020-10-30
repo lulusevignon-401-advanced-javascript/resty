@@ -27,7 +27,9 @@ function Form (props) {
       let data = JSON.parse(event.target.value);
       setRequest({...request, data});
     }
-    catch (error){}
+    catch (e){
+      console.error(e);
+    }
   };
 
   const changeMethod = method =>{

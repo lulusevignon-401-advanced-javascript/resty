@@ -3,6 +3,7 @@ import './results.scss';
 import JSONPretty from 'react-json-pretty';
 import loading from '../image/giphyLoad.gif';
 
+
 const Results = (props) =>{
 
   return(

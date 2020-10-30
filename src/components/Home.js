@@ -4,7 +4,7 @@ import md5 from 'md5';
 
 import Form from './Form';
 import Results from './Results';
-import History from './History';
+import History from './HistorySideBar';
 
 import '../app.scss';
 
@@ -44,13 +44,14 @@ class HomePage extends React.Component {
 
   componentDidMount() {
     let history = JSON.parse(localStorage.getItem('history'));
-    this.setState({ history });
+    history && this.setState({ history });
   }
 
   fetchResults = async(request)=>{
     try{
 
       this.toggleLoading();
+      if (!request.method) { request.method = "get"; }
       this.updateRequest(request);
       let response = await axios(request);
       console.log('this is the request', request);

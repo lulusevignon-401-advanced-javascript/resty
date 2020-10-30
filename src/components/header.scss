@@ -24,7 +24,8 @@ nav{
           text-decoration: none;
 
           &:hover{
-            font-size: x-large;
+            // font-size: x-large;
+            color: rgba(255, 0, 212, 0.755);
           }
 
           // &:after {
@@ -36,7 +37,7 @@ nav{
           //     top: 0;
           // }
 
-          &.here, &.here:hover {
+          &.here:hover {
               color: rgba(255, 0, 212, 0.755);
               
           }
