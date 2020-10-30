@@ -1,5 +1,10 @@
 # ReSTy
 
+My application is an API testing tool that can be run in any browser, allowing a user to easily interact with APIs in a familiar interface.
+
+### Author
+
+Lulu Sevignon
 
 ### Running the app
 - npm start
@@ -25,6 +30,17 @@
 #### Phase4:
 - As a user, I want to see all of my previous queries as a separate page so that I can browse them in greater detail
 - As a user, I would like to view a separate “Help” page so I can learn how the application works
+
+
+### Technical Requirements
+
+- React
+- ES6 Classes
+- Shared Component State
+- Local Storage for storing request history
+- Superagent or Axios for performing API Requests
+- SASS for styling
+
 
 ### UML
 

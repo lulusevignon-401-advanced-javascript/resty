@@ -3,14 +3,17 @@ import './form.scss';
 
 function Form (props) {
 
-  const [request, setRequest] = useState({});
+  const [request, setRequest] = useState({ ...props.request });
 
   useEffect(()=>{
-    const method = props.request.method || 'get';
-    const url = props.request.url || '';
-    const data = props.request.data ? JSON.stringify(props.request.data) : '';
-    setRequest({ method, url,data});
-  }, [props, setRequest]);
+  //   const method = props.request.method || 'get';
+  //   const url = props.request.url || '';
+  //   const data = props.request.data ? JSON.stringify(props.request.data) : '';
+  //   setRequest({ method, url,data});
+  // }, [props, setRequest]);
+
+  setRequest({ ...props.request });
+    }, [props]);
 
   const handleSubmit = async event =>{
     event.preventDefault();
@@ -27,7 +30,9 @@ function Form (props) {
       let data = JSON.parse(event.target.value);
       setRequest({...request, data});
     }
-    catch (error){}
+    catch (e){
+      console.error(e);
+    }
   };
 
   const changeMethod = method =>{
@@ -40,7 +45,7 @@ function Form (props) {
     <form className="FormRender" onSubmit={handleSubmit}>
     <div className="url">
       
-      <h3>URL: <input type="text" placeholder="url" defaultValue={request.url} onChange={changeUrl} />
+      <h3>URL: <input type="text" placeholder="url" name="url" defaultValue={request.url} onChange={changeUrl} />
       <button className="goButton">GO!</button>
       </h3>
     </div>

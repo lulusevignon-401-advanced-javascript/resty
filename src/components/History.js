@@ -1,33 +1,51 @@
 import React from 'react';
-import './history.scss';
-import '../app.scss';
-
-
-function History(props){
-  const calls = props.calls || {};
-
-  function loadRequest(apiCall){
-    props.handler(apiCall);
+import JSONPretty from 'react-json-pretty';
+import { When } from './If';
+class History extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: {},
+      data: null
+    };
   }
- 
 
-  return(
-    <div className="history">
-      <ul>
-        {
-          Object.keys(calls).map(key =>
-          <li key={key}>
-            <span className={`method ${props.calls[key].method}`}>{props.calls[key].method}</span>
-            <button onClick={()=>
-              loadRequest(props.calls[key])}>{props.calls[key].url}</button>
+  showRequest(key) {
+    let data = this.state.history[key].data;
+    this.setState({ data })
+  }
 
-          </li>,
-            
-          )
-        }
-      </ul>
-    </div>
-  );
+  componentDidMount() {
+    let history = JSON.parse(localStorage.getItem('history'));
+    history && this.setState({ history });
+    console.log(history);
+  }
+
+  render() {
+    return (
+      <main>
+        <section className="historyPage">
+          <aside>
+            {
+              Object.keys(this.state.history).map(key =>
+                <div key={key}
+                  className="url"
+                  onClick={() => this.showRequest(key)}>
+                  {this.state.history[key].method} - {this.state.history[key].url}
+                </div>,
+              )
+            }
+          </aside>
+          <article>
+             <When condition={!!this.state.data}>
+              {/* <ReactJson src={this.state.data} /> */}
+              <JSONPretty data={this.state.data}></JSONPretty>
+            </When>
+          </article> 
+        </section>
+      </main >
+    );
+  }
 }
 
 export default History;

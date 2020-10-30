@@ -3,7 +3,7 @@ import './footer.scss';
 
 function Footer(){ 
   return(<footer>
-  &copy; 2020 Code Fellows
+  &copy; 2020 Lulu Sevignon
   </footer>
   );
 }
