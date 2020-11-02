@@ -6,6 +6,10 @@ My application is an API testing tool that can be run in any browser, allowing a
 
 Lulu Sevignon
 
+### Deployed website
+
+[ReSTy](https://resty-b479b.web.app)
+
 ### Running the app
 - npm start
 
