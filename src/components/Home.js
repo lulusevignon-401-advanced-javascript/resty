@@ -69,7 +69,7 @@ class HomePage extends React.Component {
   render() {
     return (
 
-      <>
+      <div role="document">
 
         <Form request={this.state.request} handler={this.fetchResults} />
         <main>
@@ -82,7 +82,7 @@ class HomePage extends React.Component {
 
         </main>
 
-      </>
+      </div>
 
     );
   }
